@@ -9,41 +9,96 @@
       Title="PostImage">
 
     <Page.Resources>
-        <Style TargetType="Label">
+        <!--Custom Radio Button Styling-->
+        <Style x:Key="CustomRadioButtonStyle" TargetType="RadioButton">
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="40"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#F76902"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="40 10 0 10"/>
         </Style>
         <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0 5"/>
         </Style>
     </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350px"/>
-            <ColumnDefinition />
+            <ColumnDefinition Width=".50*" MinWidth="200"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Border BorderThickness="30" BorderBrush="#252526" Background="#252526">
-            <StackPanel>
+        <StackPanel>
+            <Line StrokeThickness="30" Stroke="Black"/>
+            <RadioButton x:Name="SysInfo" IsChecked="{Binding IsChecked}" Checked="SysInfo_Checked" Style="{StaticResource CustomRadioButtonStyle}">
+                <RadioButton.Content>
+                    <StackPanel Orientation="Horizontal" Margin="30 0">
+                        <Image Source="../../Assets/Icons/Info.ico" Width="32" Height="32" Margin="10"/>
+                        <TextBlock Text="System Information"/>
+                    </StackPanel>
+                </RadioButton.Content>
+            </RadioButton>
                 <Label>Updates</Label>
-                <TextBlock>System Info</TextBlock>
-                <TextBlock>Dell Command Updates</TextBlock>
-                <TextBlock>Windows Updates</TextBlock>
-
+            <RadioButton x:Name="Dell" Checked="Dell_Checked" Style="{StaticResource CustomRadioButtonStyle}">
+                <RadioButton.Content>
+                    <StackPanel Orientation="Horizontal" Margin="30 0">
+                        <Image Source="../../Assets/Icons/Dell.ico" Width="32" Height="32" Margin="10"/>
+                        <TextBlock Text="Dell Command Update"/>
+                    </StackPanel>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton x:Name="Windows" Checked="Windows_Checked" Style="{StaticResource CustomRadioButtonStyle}">
+                <StackPanel Orientation="Horizontal" Margin="30 0">
+                    <Image Source="../../Assets/Icons/Windows.ico" Width="32" Height="32" Margin="10"/>
+                    <TextBlock Text="Windows Update"/>
+                </StackPanel>
+            </RadioButton>
                 <Label></Label>
-
                 <Label>Software</Label>
-                <TextBlock>Sentinel One</TextBlock>
-                <TextBlock>Bomgar Jump Client</TextBlock>
+            <RadioButton x:Name="SentOne" Checked="SentOne_Checked" Style="{StaticResource CustomRadioButtonStyle}">
+                <RadioButton.Content>
+                    <StackPanel Orientation="Horizontal" Margin="30 0">
+                        <Image Source="../../Assets/Icons/sentOne.ico" Width="32" Height="32" Margin="10"/>
+                        <TextBlock Text="Sentinel One"/>
+                    </StackPanel>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton x:Name="Bomgar" Checked="Bomgar_Checked" Style="{StaticResource CustomRadioButtonStyle}">
+                <RadioButton.Content>
+                    <StackPanel Orientation="Horizontal" Margin="30 0">
+                        <Image Source="../../Assets/Icons/bomgar.ico" Width="32" Height="32" Margin="10"/>
+                        <TextBlock Text="Bomgar Jump Client"/>
+                    </StackPanel>
+                </RadioButton.Content>
+            </RadioButton>
             </StackPanel>
-        </Border>
 
-        <Border BorderThickness="30" Grid.Column="1">
+        <Border BorderThickness="40 5" Grid.Column="1">
             <StackPanel>
-                <Label>Post Image Setup</Label>
+                <Label Content="Post-Image Setup" HorizontalAlignment="Center" Padding="0" FontSize="20" Margin="0 0 0 20"/>
+                <ContentControl x:Name="CC" Grid.Column="1"/>
             </StackPanel>
-
-
         </Border>
     </Grid>
 </Page>

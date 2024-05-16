@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using tm_powertool_gui.View.UserControls;
+using tm_powertool_gui.View.UserControls.PostImage;
 
 namespace tm_powertool_gui.View.Pages
 {
@@ -23,6 +25,31 @@ namespace tm_powertool_gui.View.Pages
         public PostImage()
         {
             InitializeComponent();
+        }
+
+        private void SysInfo_Checked(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new SystemInfo();
+        }
+
+        private void Dell_Checked(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new DellCommandUpdate();
+        }
+
+        private void Windows_Checked(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new WindowsUpdate();
+        }
+
+        private void SentOne_Checked(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new SentinelOne();
+        }
+
+        private void Bomgar_Checked(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new BomgarJumpClient();
         }
     }
 }

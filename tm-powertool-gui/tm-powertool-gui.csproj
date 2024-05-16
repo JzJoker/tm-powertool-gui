@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,6 +71,21 @@
     <Compile Include="View\UserControls\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\PostImage\BomgarJumpClient.xaml.cs">
+      <DependentUpon>BomgarJumpClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\PostImage\DellCommandUpdate.xaml.cs">
+      <DependentUpon>DellCommandUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\PostImage\SentinelOne.xaml.cs">
+      <DependentUpon>SentinelOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\PostImage\WindowsUpdate.xaml.cs">
+      <DependentUpon>WindowsUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\SystemInfo.xaml.cs">
+      <DependentUpon>SystemInfo.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +115,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserControls\Header.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\PostImage\BomgarJumpClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\PostImage\DellCommandUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\PostImage\SentinelOne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\PostImage\WindowsUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\SystemInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,6 +170,22 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Images\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Dell.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\windows.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\sentOne.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\bomgar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\info.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
