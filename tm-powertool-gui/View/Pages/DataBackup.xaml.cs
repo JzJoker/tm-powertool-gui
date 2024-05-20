@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using tm_powertool_gui.View.UserControls;
+using tm_powertool_gui.View.UserControls.DataBackup;
 
 namespace tm_powertool_gui.View.Pages
 {
@@ -23,6 +25,25 @@ namespace tm_powertool_gui.View.Pages
         public DataBackup()
         {
             InitializeComponent();
+        }
+
+        private void SysInfo_Checked(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new SystemInfo();
+        }
+        private void Backup_Checked(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new Backup();
+        }
+        private void Verify_Checked(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new Restore();
+
+        }
+        private void Restore_Checked(object sender, RoutedEventArgs e)
+        {
+            CC.Content = new Verify();
+
         }
     }
 }

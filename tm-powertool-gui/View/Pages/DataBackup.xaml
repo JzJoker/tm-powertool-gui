@@ -8,7 +8,86 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DataBackup">
 
+    <Page.Resources>
+        <!--Custom Radio Button Styling-->
+        <Style x:Key="CustomRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="40"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#F76902"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="40 10 0 10"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0 5"/>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <Label Foreground="White" Content="Data Backup Page"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".50*" MinWidth="200"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <Line StrokeThickness="30" Stroke="Black"/>
+            <RadioButton x:Name="SysInfo" IsChecked="{Binding IsChecked}" Checked="SysInfo_Checked" Style="{StaticResource CustomRadioButtonStyle}">
+                <RadioButton.Content>
+                    <StackPanel Orientation="Horizontal" Margin="30 0">
+                        <Image Source="../../Assets/Icons/Info.ico" Width="32" Height="32" Margin="10"/>
+                        <TextBlock Text="System Information"/>
+                    </StackPanel>
+                </RadioButton.Content>
+            </RadioButton>
+            <Label>Scripts</Label>
+            <RadioButton x:Name="Backup" Checked="Backup_Checked" Style="{StaticResource CustomRadioButtonStyle}">
+                <RadioButton.Content>
+                    <StackPanel Orientation="Horizontal" Margin="30 0">
+                        <Image Source="../../Assets/Icons/Backup.ico" Width="32" Height="32" Margin="10"/>
+                        <TextBlock Text="Backup"/>
+                    </StackPanel>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton x:Name="Verify" Checked="Verify_Checked" Style="{StaticResource CustomRadioButtonStyle}">
+                <StackPanel Orientation="Horizontal" Margin="30 0">
+                    <Image Source="../../Assets/Icons/Verify.ico" Width="28" Height="28" Margin="12"/>
+                    <TextBlock Text="Verify"/>
+                </StackPanel>
+            </RadioButton>
+            <RadioButton x:Name="Restore" Checked="Restore_Checked" Style="{StaticResource CustomRadioButtonStyle}">
+                <StackPanel Orientation="Horizontal" Margin="30 0">
+                    <Image Source="../../Assets/Icons/Restore.ico" Width="28" Height="28" Margin="12"/>
+                    <TextBlock Text="Restore"/>
+                </StackPanel>
+            </RadioButton>
+
+        </StackPanel>
+
+        <Border BorderThickness="40 5" Grid.Column="1">
+            <StackPanel>
+                <Label Content="Data Backup" HorizontalAlignment="Center" Padding="0" FontSize="20" Margin="0 0 0 20"/>
+                <ContentControl x:Name="CC" Grid.Column="1"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

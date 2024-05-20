@@ -8,6 +8,10 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Label Content="Windows" Foreground="White"/>
+        <Button Name="CheckButton" Content="Check" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Click="CheckButton_Click"/>
+        <ListBox Name="UpdatesListBox" Width="560" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,0,0"/>
+        <Button Name="RunButton" Content="Run" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Click="RunButton_Click"/>
+        <ProgressBar Name="ProgressBar" Width="560" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,50"/>
 
     </Grid>
 </UserControl>

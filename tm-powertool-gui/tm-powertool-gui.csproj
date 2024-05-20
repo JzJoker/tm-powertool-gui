@@ -68,6 +68,15 @@
     <Compile Include="View\Pages\SeniorReview.xaml.cs">
       <DependentUpon>SeniorReview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\DataBackup\Backup.xaml.cs">
+      <DependentUpon>Backup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\DataBackup\Restore.xaml.cs">
+      <DependentUpon>Restore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\DataBackup\Verify.xaml.cs">
+      <DependentUpon>Verify.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
@@ -111,6 +120,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\SeniorReview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\DataBackup\Backup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\DataBackup\Restore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\DataBackup\Verify.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +192,7 @@
   <ItemGroup>
     <Folder Include="Assets\Images\" />
     <Folder Include="Model\" />
+    <Folder Include="View\UserControls\SeniorReview\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Icons\Dell.ico" />
@@ -186,6 +208,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Icons\info.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\backup.ico" />
+    <Resource Include="Assets\Icons\restore.ico" />
+    <Resource Include="Assets\Icons\verify.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WUApiLib">
+      <Guid>{B596CC9F-56E5-419E-A622-E01BB457431E}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

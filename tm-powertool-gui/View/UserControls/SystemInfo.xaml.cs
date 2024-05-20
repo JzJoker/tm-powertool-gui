@@ -43,7 +43,7 @@ namespace tm_powertool_gui.View.UserControls
             Domain = System.Environment.UserDomainName;
             Username = System.Environment.UserName;
             WindowsVersion = GetCleanWindowsVersion();
-            SystemType = System.Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit";
+            SystemType = System.Environment.Is64BitOperatingSystem ? "x64-based PC" : "x32-based PC";
             DeviceModel = GetDeviceModel();
             SerialNumber = GetSerialNumber();
             BiosVersion = GetBiosVersion();
